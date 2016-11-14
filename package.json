@@ -16,10 +16,17 @@
     "url": "git+https://github.com/saikath/node-mvc-folder-structure.git"
   },
   "keywords": [
-    "mqtt",
-    "mqtt test",
-    "mqtt client server",
-    "mqtt example"
+    "node",
+    "nodejs",
+    "mvc structure",
+    "nodejs mvc structure",
+    "nodejs folder",
+    "nodejs folder structure",
+    "nodejs mvc folder structure",
+    "node mvc structure",
+    "node folder",
+    "node folder structure",
+    "node mvc folder structure"
   ],
   "dependencies": {
     "bcrypt": "latest",
