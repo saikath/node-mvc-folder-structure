@@ -1,0 +1,40 @@
+{
+  "name": "node_mvc_structure",
+  "version": "1.0.0",
+  "description": "this is a sample node mvc folder structure",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "clear && echo \"\n-------- Running in production mode ---------\n\"&& npm install | NODE_ENV=production node ./app.js",
+    "dev": "clear && echo \"\n-------- Running in development mode -------- \n \" && NODE_ENV=development nodemon ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saikath/node-mvc-folder-structure.git"
+  },
+  "keywords": [
+    "mqtt",
+    "mqtt test",
+    "mqtt client server",
+    "mqtt example"
+  ],
+  "dependencies": {
+    "bcrypt": "latest",
+    "express": "latest",
+    "cors": "latest",
+    "method-override": "latest",
+    "express-session": "latest",
+    "mongoose": "latest",
+    "body-parser": "latest"
+  },
+  "bugs": {
+    "url": "https://github.com/saikath/node-mvc-folder-structure/issues"
+  },
+  "homepage": "https://github.com/saikath/node-mvc-folder-structure#readme",
+  "devDependencies": {},
+  "author": "Saikat Hajra",
+  "license": "MIT"
+}
