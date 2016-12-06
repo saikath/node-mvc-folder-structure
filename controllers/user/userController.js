@@ -4,28 +4,51 @@ var module, exports;
 
 var db = require(dslash(2) + 'db/models');
 
-module.exports.getAllUser = function(req, res, next) {
-  db.user.findUser(function(err, data) {
-    if (err) {
-      next(err);
-    } else {
-      res.body.message = "USER_NOT_FOUND";
-      res.body.errors.push({ login: "issue with login" });
-      res.body.data = { data: data };
-      res.response(res.body);
-    }
-  });
+module.exports.signIn = function (req, res, next) {
+    db.user.signin(req.body, function (err, user) {
+        if (err) {
+            next(err);
+        } else {
+            if (user.err) {
+                next(user);
+            } else {
+                res.body.data = user.data;
+                res.body.message = user.msg;
+                res.response(res.body);
+            }
+        }
+    });
 }
 
-module.exports.error = function(req, res, next) {
-  db.user.error(function(err, data) {
-    if (err) {
-      next(err);
-    } else {
-      res.body.message = "USER_NOT_FOUND";
-      res.body.errors.push({ login: "issue with login" });
-      res.body.data = { data: data };
-      res.response(res.body);
-    }
-  });
+module.exports.logIn = function (req, res, next) {
+    db.user.login(req.body.username, req.body.password, function (err, user) {
+        if (err) {
+            next(err);
+        } else {
+            if (user.err) {
+                next(user);
+            } else {
+                res.body.data = user.data;
+                res.body.message = user.msg
+                res.response(res.body);
+            }
+        }
+    });
+}
+
+module.exports.getAlluser = function (req, res, next) {
+    db.user.getAlluser(function (err, users) {
+        if (err) {
+            next(err);
+        } else {
+            if (users.err) {
+                users.mainMsg = 'NO_DATA_FOUND';
+                next(users);
+            } else {
+                res.body.data = users.data;
+                res.body.message = users.msg
+                res.response(res.body);
+            }
+        }
+    });
 }
